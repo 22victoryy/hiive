@@ -3,11 +3,13 @@ variable "name" {
   type        = string
 }
 
+# EKS cluster to be placed in a vpc
 variable "vpc_id" {
   description = "VPC ID for the cluster"
   type        = string
 }
 
+# EKS cluster to be placed in a subnet
 variable "subnet_ids" {
   description = "List of subnet IDs"
   type        = list(string)
