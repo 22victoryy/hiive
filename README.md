@@ -1,34 +1,26 @@
-# hiive
-Hiive tf assignment
+# Hiive EKS Deployment with Terraform 
 
-providers for all the configs where terraform init will be run in root 
+Local machine requirements: Terraform, AWS CLI, kubectl, Helm (For simplicity, I did not use raw YAML as it gets messy.)
 
-# structure
-Modules
+- Provisions an AWS EKS cluster in `ca-central-1`
+- Deploy nginx using helm
+- Set up required VPC, subnets, IAM roles, and security configuration
 
-EKS
-- EKS cluster 
-- Managed node groups
-- EKS ODIC Provider (open id connect to allow Kubeneretes to use AWS))
-
-* Create the EKS cluster
-* Attach the cluster and node IAM roles
-* Use your VPC + subnets
-* Create a basic managed node group
-
-Security 
-- IAM Role for EKS Deployment
-- Security group - Control plane and EKS nodes
-
-* I created separate IAM roles for the EKS control plane and worker nodes, each with the least privilege required to operate. AWS-managed policies were used to simplify access control while staying aligned with best practices.
-
-VPC
-- Public/Private subnets and route tables 
-  * Used 10.0.0.0/16 for baseline classic inter domain routing to get enough ~65k ips to work with
-- Internet NAT Gateway
-- VPC 
+## Stack
+- Terraform v1.6+
+- AWS CLI v2
+- `kubectl`
+- `helm`
 
 
+## Modules:
+- `vpc`: VPC with two public subnets and internet gateway
+- `security`: IAM roles for the EKS control plane and nodes
+- `eks`: EKS cluster(1–2 t3.small nodes) and managed node group 
+- `helm`: Helm deployment of NGINX 
 
 
-Local machine requirements: Terraform, AWS CLI, kubectl, Helm
+## 🚀 How to Deploy
+
+terraform init
+terraform apply -var-file="terraform.tfvars"
