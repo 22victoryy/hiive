@@ -60,6 +60,6 @@ Run a simple yaml.
 
 
 # Screenshots and short explanations
-cluster-running-on-aws.png - shows cluster running in ca-central-1
-terraform-successfully-deployed.png - shows full terraform output
-deployed-nginx-running-kubectl.png - shows deployed nginx as pods 
+* cluster-running-on-aws.png - shows cluster running in ca-central-1
+* terraform-successfully-deployed.png - shows full terraform output
+* deployed-nginx-running-kubectl.png - shows deployed nginx as pods 
