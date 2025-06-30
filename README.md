@@ -42,7 +42,7 @@ terraform init
 terraform plan
 
 # Apply the infrastructure
-terraform applyx
+terraform apply
 
 
 # Nginx deployment
