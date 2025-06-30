@@ -1,6 +1,6 @@
 # Hiive EKS Deployment with Terraform 
 
-Local machine requirements: Terraform, AWS CLI, kubectl, Helm (For simplicity, I did not use raw YAML as it gets messy.). This project provisions a complete EKS cluster in AWS using Terraform and deploys a sample NGINX application.
+Local machine requirements: Terraform, AWS CLI, kubectl. This project provisions a complete EKS cluster in AWS using Terraform and deploys a sample NGINX application.
 
 
 - Provisions an AWS EKS cluster in `ca-central-1`
