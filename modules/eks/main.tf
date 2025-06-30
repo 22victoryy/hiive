@@ -18,6 +18,11 @@ module "eks" {
   create_iam_role = false
   iam_role_arn    = var.cluster_iam_role_arn
 
+  # for kubectl list nodes
+  # required for kubectl access to cluster-scoped resources like nodes.
+  enable_cluster_creator_admin_permissions = true
+
+
  # t3.small 2 cluster, keeping it simple
  # consumed resources and money, shoudl not be run overnight
   eks_managed_node_groups = {

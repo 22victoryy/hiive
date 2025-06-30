@@ -37,3 +37,15 @@ terraform plan
 # Apply the infrastructure
 terraform apply
 
+
+# Nginx deployment
+Run a simple yaml.
+
+
+To minimize cost, please run terraform destroy after testing.
+
+
+# Screenshots and short explanations
+cluster running on aws.png - shows cluster running in ca-central-1
+terraform successfully deployed.png - shows full terraform output
+deployed-nginx-running-kubectl.png - shows deployed nginx as pods 
