@@ -19,7 +19,6 @@ Local machine requirements: Terraform, AWS CLI, kubectl. This project provisions
 - I used raw yaml for deployment and for the purpose of simplicity but for production or complex deployments, HELM would be a better choice.
 
 
-
 ## Modules:
 - `vpc`: VPC with two public subnets and internet gateway
 - `security`: IAM roles for the EKS control plane and nodes
@@ -63,3 +62,10 @@ Run a simple yaml.
 * cluster-running-on-aws.png - shows cluster running in ca-central-1
 * terraform-successfully-deployed.png - shows full terraform output
 * deployed-nginx-running-kubectl.png - shows deployed nginx as pods 
+
+
+# Key hardships and debuggings
+- Initial change from HELM deployment for raw YAML for simplicity
+- Terraform syntax errors and module rewiring (such as order of module execution, right terraform versions, etc)
+- Configuration issues such as installing and updating requirements on local, setting up aws cli, iamrole permissions, vpc route tables, kubectl initial configurations (e.g. aws-auth, enable_cluster_creator_admin_permissions, scoping)
+- Remembering to destroy the infra to not incur AWS costs after verification
