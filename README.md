@@ -66,7 +66,6 @@ Run a simple yaml.
 
 # Key hardships and debuggings
 - Initial change from HELM deployment for raw YAML for simplicity
-- Used t3.small
 - Terraform syntax errors and module rewiring (such as order of module execution, right terraform versions, etc)
 - Configuration issues such as installing and updating requirements on local, setting up aws cli, iamrole permissions, vpc route tables, kubectl initial configurations (e.g. aws-auth, enable_cluster_creator_admin_permissions, scoping)
 - Remembering to destroy the infra to not incur AWS costs after verification (t3 small, while a small setup, incurs costs daily.)
