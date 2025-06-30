@@ -4,6 +4,7 @@
 resource "aws_iam_role" "eks_cluster_role" {
   name = "${var.name}-eks-cluster-role"
 
+  # fix tf syntax 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -52,7 +53,7 @@ resource "aws_iam_role" "eks_node_role" {
   }
 }
 
-# Attacj IAM Policies to EKS worker node role
+# Attach IAM Policies to EKS worker node role
 # EKSWorkerNodePolicy - allows communication between node and control plane.
 # ECRReadOnly - allows pulling public/private container images.
 # CNI Policy - required for VPC networking via the AWS CNI plugin (https://docs.aws.amazon.com/eks/latest/best-practices/vpc-cni.html) - Pod assigning
@@ -72,7 +73,5 @@ resource "aws_iam_role_policy_attachment" "eks_node_CNI" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
 }
 
-resource "aws_eks_cluster" "oidc_provider" {
-  # placeholder just in case you need OIDC configuration later
-  depends_on = [aws_iam_role.eks_cluster_role]
-}
+
+

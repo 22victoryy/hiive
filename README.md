@@ -6,21 +6,34 @@ Local machine requirements: Terraform, AWS CLI, kubectl, Helm (For simplicity, I
 - Deploy nginx using helm
 - Set up required VPC, subnets, IAM roles, and security configuration
 
-## Stack
-- Terraform v1.6+
-- AWS CLI v2
-- `kubectl`
-- `helm`
+## Prerequisites
+- Terraform ≥ 1.5
+- AWS CLI with valid credentials
+- GitHub (public repo required)
+
 
 
 ## Modules:
 - `vpc`: VPC with two public subnets and internet gateway
 - `security`: IAM roles for the EKS control plane and nodes
 - `eks`: EKS cluster(1–2 t3.small nodes) and managed node group 
-- `helm`: Helm deployment of NGINX 
 
+## How to Deploy
 
-## 🚀 How to Deploy
+# Clone the repo
+git clone https://github.com/yourname/hiive
+cd hiive
 
+# Set up AWS credentials
+export AWS_ACCESS_KEY_ID=...
+export AWS_SECRET_ACCESS_KEY=...
+
+# Initialize Terraform
 terraform init
-terraform apply -var-file="terraform.tfvars"
+
+# Review the plan
+terraform plan
+
+# Apply the infrastructure
+terraform apply
+
