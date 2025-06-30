@@ -4,7 +4,7 @@ Local machine requirements: Terraform, AWS CLI, kubectl. This project provisions
 
 
 - Provisions an AWS EKS cluster in `ca-central-1`
-- Deploy nginx using helm
+- Deploy nginx using raw yaml
 - Set up required VPC, subnets, IAM roles, and security configuration
 - Deploys **NGINX** using `kubectl` and a simple YAML file
 - Uses **Terraform modules** for VPC, IAM, and EKS
